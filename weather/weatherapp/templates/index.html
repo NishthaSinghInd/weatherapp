@@ -3,20 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Weather App</title>
 </head>
 <body>
-    <form action=" " method="POST">
+    <h1>Weather App</h1>
+    <form method="POST" action="/page">
         {% csrf_token %}
-        <input type="text" name='cityName' placeholder="Enter city">
-        <button type="submit">search</button>
+        <label for="cityName">Enter city:</label>
+        <input type="text" id="cityName" name="cityName" placeholder="Enter city">
+        <button type="submit">Search</button>
     </form>
-    <h2>{{ temp }}&#176; C</h2>
-    <h3>{{ city }}</h3>
-    <p>{{ description }}</p>
-    <p>
-        <img src="https://openweathermap.org/img/wn/10d@2x.png" width="100px">
-    </p>
-    <p>{{ day }}</p>
 </body>
 </html>
