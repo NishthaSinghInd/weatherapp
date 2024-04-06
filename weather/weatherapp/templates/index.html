@@ -7,8 +7,8 @@
 </head>
 <body>
     <form action=" " method="POST">
-        {% crsf_token %}
-        <input type="text" placeholder="Enter city">
+        {% csrf_token %}
+        <input type="text" name='cityName' placeholder="Enter city">
         <button type="submit">search</button>
     </form>
     <h2>{{ temp }}&#176; C</h2>
