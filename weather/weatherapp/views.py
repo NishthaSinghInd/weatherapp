@@ -16,12 +16,11 @@ def get_weather_data(city):
         return None
 
 # Create your views here.
-def home(request):
-<<<<<<< HEAD
+def result(request):
     if request.method == 'POST':
         city = request.POST['cityName']
     else: 
-        city='indore'
+        return JsonResponse({"error": "Please enter a city name"}, status=400)
 
     # Fetch weather data
     weather_data = get_weather_data(city)
@@ -34,28 +33,8 @@ def home(request):
         return render(request, 'result.html', {'description': description, 'icon': icon, 'temp': temp, 'day': day, 'city': city})
     else:
         error_message = f"Failed to fetch weather data for {city}. Please try again later."
-        return render(request, 'result.html', {'error_message': error_message})
+        return render(request, 'index.html', {'error_message': error_message})
 
 
 def page(request):
     return render(request, 'index.html')
-=======
-    if 'cityName' in requests.POST:
-        city = request.POST['cityName']
-    else:
-        city = 'indore'
-    
-
-
-    url = f'https://api.openweathermap.org/data/2.5/weather?q={city}&appid=6a8c2720970c1dd78fb680438474bc0d'
-    PARAMS = {'units':'metric'}
-    data =request.get(url,PARAMS).json()
-    description =data['weather'][0]['description']
-    icon=data['weather'][0]['icon']
-    temp=data['main']['temp']
-    day = datetime.data.today()
-    return render(request,'index.html',{'description':description,'icon':icon,'temp':temp,'day':day,'city':city})
-   
-def page(req):
-    return render(req,'index.html')
->>>>>>> upstream/main
